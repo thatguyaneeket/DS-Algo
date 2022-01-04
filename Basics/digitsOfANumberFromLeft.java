@@ -2,7 +2,7 @@ package Basics;
 
 import java.util.Scanner;
 
-public class DigitsOfANumberFromLeft {
+public class digitsOfANumberFromLeft {
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     long n = sc.nextLong();
