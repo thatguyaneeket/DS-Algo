@@ -3,10 +3,10 @@ package Arrays.oneDimentional;
 
 public class SmallestSubarraySum {
   public static void main(String[] args) {
-    int[] arr = { 1, 2, 4 };
-    int x = 8;
+    int[] arr = { 1, 11, 100, 1, 0, 200, 3, 2, 1, 250 };
+    int x = 280;
 
-    System.out.println(smallestSubarray(arr, arr.length, x));
+    System.out.println(smallestSubarray2(arr, arr.length, x));
   }
 
   static int smallestSubarray(int[] arr, int n, int x) {
@@ -28,5 +28,23 @@ public class SmallestSubarraySum {
       }
     }
     return minLen;
+  }
+
+  static int smallestSubarray2(int[] arr, int n, int x) {
+    int minlen = n + 1, start = 0, end = 0, sum = 0;
+
+    while (end < n) {
+      if (sum <= x) {
+        sum += arr[end];
+        end++;
+      } else {
+        if (end - start < minlen) {
+          minlen = end - start;
+        }
+        sum -= arr[start];
+        start++;
+      }
+    }
+    return minlen;
   }
 }
